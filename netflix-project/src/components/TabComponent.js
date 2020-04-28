@@ -5,6 +5,8 @@ import '../css/TabsNav.css';
 import TabDevices from './tabs_nav/TabDevices';
 import TabPrices from './tabs_nav/TabsPrices';
 import TabContentOne from './TabContentOne';
+import TabContentTwo from './TabContentTwo';
+import TabContentThree from './TabContentThree';
 
 class TabComponent extends Component {
     state ={
@@ -17,20 +19,30 @@ class TabComponent extends Component {
                     <TabList className="tab-nav-container">
                         <Tab className={`${this.state.tabIndex === 0 ? 'tab-selected active' : null}`}>
                             <TabDoor />
-                            <p style={{marginBottom: '1.875rem'}}><strong>No commitments <br /> Cancel online at anytime</strong></p>
+                            <p className="lgScreen" style={{marginBottom: '1.875rem'}}><strong>No commitments <br /> Cancel online at anytime</strong></p>
+                            <span className="mdScreen" style={{marginTop:'-5.3125rem'}}>Cancel</span>
                         </Tab>
                         <Tab className={`${this.state.tabIndex === 1 ? 'tab-selected active' : null}`}>
                             <TabDevices />
-                            <p style={{marginTop:'-5.3125rem'}}><strong>Watch anymore<br /></strong></p>
+                            <p className="lgScreen" style={{marginTop:'-5.3125rem'}}><strong>Watch anymore blah blah blah blah<br /></strong></p>
+                            <span className="mdScreen" style={{marginTop:'-5.3125rem'}}>Devices</span>
                         </Tab>
                         <Tab className={`${this.state.tabIndex === 2 ? 'tab-selected active' : null}`}>
                             <TabPrices />
-                            <p><strong>Pick your price<br /></strong></p>
+                            <p className="lgScreen"><strong>Pick your price  blah blah blah blah<br /></strong></p>
+                            <br />
+                            <span className="mdScreen">Price</span>
                         </Tab>
                     </TabList>
                     {/* Tabs Content */}
                     <TabPanel>
                         <TabContentOne />
+                    </TabPanel>
+                    <TabPanel>
+                        <TabContentTwo />
+                    </TabPanel>
+                    <TabPanel>
+                        <TabContentThree />
                     </TabPanel>
                 </Tabs>
             </div>
