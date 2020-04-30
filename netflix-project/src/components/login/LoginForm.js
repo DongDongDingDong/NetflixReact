@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import FBlogo from '../../images/fb-logo.png';
+import { generateMedia } from 'styled-media-query';
 
 
 const regexp = RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/);
@@ -122,6 +123,11 @@ class LoginForm extends Component {
 
 export default LoginForm;
 
+// Media 
+const customMedia = generateMedia({
+    tablet:'640px'
+})
+
 // Form Container
 
 const FormContainer = styled.div`
@@ -129,6 +135,9 @@ display: grid;
 justify-content: center;
 position: relative;
 z-index: 5;
+${customMedia.lessThan('tablet')`
+border-bottom: 0.9px solid #999;
+    `}
 
 .form-container {
     background: rgba(0,0,0,0.8);
@@ -136,6 +145,10 @@ z-index: 5;
     width: 28.125rem;
     height:41.25rem;
     padding:4rem;
+    ${customMedia.lessThan('tablet')`
+    padding: 0.6rem;
+    height: 3.5rem;
+    `}
 }
 
 .input-container {
@@ -222,6 +235,9 @@ input:focus {
     color: #828282;
     margin-left:6.6rem;
     font-size: 0.9rem;
+    ${customMedia.lessThan('tablet')`
+    margin-left: 13rem;
+    `}
 }
 
 // Bottom form
